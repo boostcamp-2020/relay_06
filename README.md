@@ -1,4 +1,11 @@
-# relay-06
+<h1 align="center">
+relay 6조 라떼월드
+  
+![GitHub stars](https://img.shields.io/github/stars/boostcamp-2020/relay_06?style=social)
+
+![GitHub language count](https://img.shields.io/github/languages/count/boostcamp-2020/relay_06) ![GitHub pull requests](https://img.shields.io/github/issues-pr/boostcamp-2020/relay_06?color=green) ![GitHub issues](https://img.shields.io/github/issues/boostcamp-2020/relay_06)  
+
+</h1>
 
 ## 기획서
 [구글 프레젠테이션](https://docs.google.com/presentation/d/1KVMY72W_LfYM90A4zkEgC6fcdEBQH48g6vqVKTmdzu0/edit?usp=sharing)
@@ -13,3 +20,4 @@
 ### 1주차
 - [월요일](https://github.com/boostcamp-2020/relay_06/wiki/1%EC%A3%BC%EC%B0%A8-%EB%9D%BC%EB%96%BC-%EC%B1%8C%EB%A6%B0%EC%A7%80)
 - [금요일](https://github.com/boostcamp-2020/relay_06/wiki/1%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EC%9D%98%EB%A1%9D)
+

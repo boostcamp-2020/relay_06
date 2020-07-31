@@ -11,4 +11,5 @@
 ## 회의록
 
 ### 1주차
-[wiki](https://github.com/boostcamp-2020/relay_06/wiki/1%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EC%9D%98%EB%A1%9D)
+- 월요일: [wiki](https://github.com/boostcamp-2020/relay_06/wiki/1%EC%A3%BC%EC%B0%A8-%EB%9D%BC%EB%96%BC-%EC%B1%8C%EB%A6%B0%EC%A7%80)
+- 금요일: [wiki](https://github.com/boostcamp-2020/relay_06/wiki/1%EC%A3%BC%EC%B0%A8-%ED%9A%8C%EC%9D%98%EB%A1%9D)

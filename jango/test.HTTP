@@ -1,0 +1,14 @@
+GET  http://127.0.0.1:8000/api/diary/ HTTP/1.1
+
+POST http://127.0.0.1:8000/api/diary/ HTTP/1.1
+
+headers : {
+    "Accept" : "application/json",
+    "Content-Type" : "application/json"
+},
+
+{
+    "title": "title1",
+    "content": "this is content",
+    "tags": "tag1"
+}

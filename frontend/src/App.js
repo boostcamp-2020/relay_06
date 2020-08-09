@@ -1,7 +1,6 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import PostEdit from './components/PostEdit';
-
+import React from "react";
+import Navbar from "./components/Navbar";
+import PostEdit from "./components/PostEdit";
 
 function App() {
   return (

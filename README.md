@@ -10,6 +10,9 @@ relay 6조 라떼월드
 ## 기획서
 [구글 프레젠테이션](https://docs.google.com/presentation/d/1KVMY72W_LfYM90A4zkEgC6fcdEBQH48g6vqVKTmdzu0/edit?usp=sharing)
 
+## 2주차 웹페이지
+http://101.101.219.177
+
 ## 참여자
 
 ### 1주차

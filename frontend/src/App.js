@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import PostEdit from "./components/PostEdit";
 import Routes from './components/Routes';
 
 function App() {

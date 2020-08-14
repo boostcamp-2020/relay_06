@@ -40,22 +40,22 @@ def showPhotoList(request):
         'photo_list': photo_list,
     }
     # photo_list = serializers.serialize('json', posts)
-    # return JsonResponse(context, safe=False)
+    return JsonResponse(context, safe=False)
     
     # return HttpResponse(photo_list, content_type="text/json-comment-filtered")
     # ctx = json.dumps(context)
     # print(type(ctx))
-    return render(request, 'quickstart/photo-list.html', context)
+    # return render(request, 'quickstart/photo-list.html', context)
 
 def show_photo(request, pk):
     photo = get_object_or_404(Photo, pk=pk)
     context = {
         'photo' : photo,
     }
-    # return JsonResponse(context, safe=False)
+    return JsonResponse(context, safe=False)
     # context2 = json.dumps(context)
     # print(type(context2))
-    return render(request, 'quickstart/photo.html', context)
+    # return render(request, 'quickstart/photo.html', context)
     # return HttpResponse(photo_list, content_type="text/json-comment-filtered")
 
 
@@ -63,7 +63,7 @@ def show_photo(request, pk):
 
 class ImageUpload(APIView):
      @staticmethod
-     @method_decorator(csrf_exempt)
+     @method_decorator(csrf_exempt) 
      def post(request) :
         print (request.FILES)
         img = UploadForm(request.POST, request.FILES)

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Gallery from "react-photo-gallery";
 import {photos} from '../temp/photos.js'
+import { Button } from 'react-bootstrap';
 
 
 
@@ -9,7 +10,10 @@ function GalleryPage() {
     return (
         <>
             <Navbar/>
-            <h1>갤러리페이지입니다.</h1>
+            <Button variant="primary" href="/gallery/upload">
+                사진등록
+            </Button>
+            
             <Gallery photos={photos} />
         </>
     );

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+        {% for photo in photo_list %}
+            <div>
+                <h1><a href="{% url 'show_photo' pk=photo.pk %}">{{ photo.id }}</a></h1>
+                <img src="{{ photo.source }}" width="200px">
+                <p>{{ photo.tag }}</p>
+            </div>
+        {% endfor %}
+        </ul>
+    {% endblock %}
+</body>
+</html>

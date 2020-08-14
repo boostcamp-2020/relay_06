@@ -125,3 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 각 media 파일에 대한 URL Prefix
+MEDIA_URL = '/media/' # 항상 / 로 끝나도록 설정
+
+# 업로드된 파일을 저장할 디렉토리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

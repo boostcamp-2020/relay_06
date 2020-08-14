@@ -86,6 +86,7 @@ class ImageUpload(APIView):
         posts_serializer = PhotoSerializer(data=request.data)
         if posts_serializer.is_valid():
             posts_instance = posts_serializer.save()
+            # 네이버 Ojbect detection api 호출
             client_id = "2b3i4jqwr1"
             client_secret = "f6jT0E8NUhisdoIGy5LhNyCBWGxC7Uamc7bNZgCQ"
             url = "https://naveropenapi.apigw.ntruss.com/vision-obj/v1/detect"
@@ -108,14 +109,7 @@ class ImageUpload(APIView):
             print('error', posts_serializer.errors)
             return HttpResponse("error")
 
-class deletePhoto(APIView):
-     @staticmethod
-     @method_decorator(csrf_exempt) 
-     @api_view(['DELETE'])
-     def delete(request, pk):
-        instance = get_object_or_404(Photo, pk=pk)
-        instance.delete()
-        return HttpResponse("success")
+
 
 
 

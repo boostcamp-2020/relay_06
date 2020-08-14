@@ -18,13 +18,13 @@ function Navbar() {
               <a class="nav-link" href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>홈</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">다이어리<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">다이어리</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">프로필</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">사진첩</a>
+              <a class="nav-link" href="/gallery">사진첩</a>
             </li>
           </ul>
         </div>

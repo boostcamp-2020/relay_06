@@ -17,7 +17,7 @@ import Navbar from './components/Navbar';
 
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Gallery, Home } from './pages';
+import { Gallery, Home, ImageUpload } from './pages';
 
 class App extends Component {
   render() {
@@ -29,6 +29,7 @@ class App extends Component {
             <div>
               <Route exact path="/" component={Home} />
               <Route path="/gallery" component={Gallery} />
+              <Route path="/upload/image" component={ImageUpload} />
             </div>
           </div>
         </BrowserRouter>

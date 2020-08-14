@@ -1,41 +1,14 @@
-// import React from "react";
-import Navbar from './components/Navbar';
-// import PostEdit from "./components/PostEdit";
+import React from "react";
+import Navbar from "./components/Navbar";
+import PostEdit from "./components/PostEdit";
+import Routes from './components/Routes';
 
-// function App() {
-//   return (
-
-/* <div className="App">
-  <Navbar />
-  <PostEdit />
-</div>; */
-
-//   );
-// }
-
-// export default App;
-
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Gallery, Home, ImageUpload } from './pages';
-
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <BrowserRouter>
-          <div className="App">
-            <Navbar />
-            <div>
-              <Route exact path="/" component={Home} />
-              <Route path="/gallery" component={Gallery} />
-              <Route path="/upload/image" component={ImageUpload} />
-            </div>
-          </div>
-        </BrowserRouter>
-      </React.Fragment>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Routes/>
+    </div>
+  );
 }
 
 export default App;

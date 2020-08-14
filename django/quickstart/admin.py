@@ -3,4 +3,7 @@ from .models import Diary
 
 
 # Register your models here.
-admin.site.register(Diary)
+class DiaryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'content']
+
+admin.site.register(Diary, DiaryAdmin)

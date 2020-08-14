@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 # from .keyword import mkKeywords
- from .keyword import Keyword
+from .keyword import Keyword
 import json
 
 
@@ -28,5 +28,9 @@ class NLPView(APIView):
         jsonData = Keyword([texts])
         return JsonResponse(jsonData, safe=False)
 
-
-    
+def showList(request):
+    diary_list = Diary.objects.all()
+    context = {
+        'diary_list': diary_list,
+    }
+    return render(request, 'quickstart/test.html', context)

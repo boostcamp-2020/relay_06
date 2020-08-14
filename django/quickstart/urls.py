@@ -10,6 +10,7 @@ urlpatterns = [
     path('diary/', views.DiaryView.as_view()),
     path("nlp/",views.NLPView.as_view()),
     path("photo/upload/", views.ImageUpload.as_view()),
+    #path("photo/<int:pk>/", views.delete_photo, name='delete_photo')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

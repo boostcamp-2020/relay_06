@@ -11,3 +11,4 @@ class PhotoAdmin(admin.ModelAdmin):
 
 admin.site.register(Diary, DiaryAdmin)
 admin.site.register(Photo, PhotoAdmin)
+

@@ -11,4 +11,4 @@ class DiarySerializer(serializers.ModelSerializer):
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
-        fields = ('source', 'time', 'tag')
+        fields = ('id', 'source', 'time', 'tag')

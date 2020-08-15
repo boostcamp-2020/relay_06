@@ -1,0 +1,45 @@
+.gallery-photo-page-container {
+  padding-top: 30px;
+}
+
+.photo-page-nav {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  .btn {
+    background: transparent;
+    font-size: 1.2rem;
+    padding: 0;
+  }
+  .photo-page-title {
+    margin-left: 12px;
+    h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.photo-page-tags {
+  margin-top: 10px;
+
+  .badge {
+    padding: 5px 8px;
+    cursor: pointer;
+  }
+  .badge + .badge {
+    margin-left: 5px;
+  }
+}
+
+.photo-page-image-wrapper {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.photo-page-menu {
+  margin-top: 15px;
+  text-align: right;
+}

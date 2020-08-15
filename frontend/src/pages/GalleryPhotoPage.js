@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-// import './GalleryPhotoPage.css';
-import { Jumbotron, Image } from 'react-bootstrap';
-import * as api from '../lib/image-api';
+import './GalleryPhotoPage.scss';
+import { Container, Badge, Button, Image } from 'react-bootstrap';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function GalleryPhotoPage({ match }) {
   const [imageInfo, setImageInfo] = useState({ id: 0, source: '', tags: [], time: '' });
@@ -18,6 +19,20 @@ function GalleryPhotoPage({ match }) {
     });
   };
 
+  const deleteImage = async () => {
+    const imageId = match.params.id;
+    // await axios.delete(`/api/photo/${imageId}`).then(() => {
+    //   alert('삭제되었습니다.');
+    //   window.location = '/gallery';
+    // });
+    alert('삭제되었습니다.');
+    window.location = '/gallery';
+  };
+
+  const tagClickHandler = (tag) => {
+    alert(tag);
+  };
+
   useEffect(() => {
     window.addEventListener('load', getImageInfo);
   });
@@ -25,20 +40,33 @@ function GalleryPhotoPage({ match }) {
   return (
     <>
       <Navbar />
-      <Jumbotron>
-        <div class="btn-group-lg" role="group" aria-label="...">
-          {tags.map((element) => (
-            <button type="button" class="btn btn=default">
+      <Container className="gallery-photo-page-container">
+        <div className="photo-page-nav">
+          <Button href="/gallery" variant="default">
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </Button>
+          <div className="photo-page-title">
+            <h2> {imageInfo.time} 의 기록</h2>
+          </div>
+        </div>
+        <div className="photo-page-tags">
+          <span className="badge-label">
+            <strong>Tags: </strong>
+          </span>
+          {imageInfo.tags.map((element) => (
+            <Badge pill variant="primary" key={'tag_' + element} onClick={() => tagClickHandler(element)}>
               {' '}
               {element}{' '}
-            </button>
+            </Badge>
           ))}
         </div>
-        <p> {time} </p>
-        <div class="text-center">
-          <Image src={imageInfo.url} fluid />
+        <div className="photo-page-image-wrapper">
+          <Image src={imageInfo.source} fluid />
         </div>
-      </Jumbotron>
+        <div className="photo-page-menu">
+          <Button onClick={deleteImage}>사진삭제</Button>
+        </div>
+      </Container>
     </>
   );
 }

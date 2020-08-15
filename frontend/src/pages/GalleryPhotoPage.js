@@ -4,23 +4,24 @@ import Navbar from '../components/Navbar';
 import { Jumbotron, Image } from 'react-bootstrap';
 import * as api from '../lib/image-api';
 
-/* src= "image.png" 에 이미지 링크 추가하면 될 것 같음 */
 function GalleryPhotoPage({ match }) {
-  // const tags = _tags;
-  // const imageUrl = _imageUrl;
-  // const time = _time;
+  const [imageInfo, setImageInfo] = useState({ id: 0, source: '', tags: [], time: '' });
 
-  const [imageInfo, setImageInfo] = useState({});
+  const getImageInfo = () => {
+    const imageId = match.params.id;
+    // await axios.get(`/api/photo/${imageId}`).then((imageInfo) => setImageInfo(imageInfo));
+    setImageInfo({
+      id: imageId,
+      source: 'http://placeimg.com/640/480/any',
+      tags: ['집', '개', '고양이'],
+      time: '2020-08-14 12:30'
+    });
+  };
 
   useEffect(() => {
-    const imageId = match.params.id;
-    api.getImage(imageId).then((imageInfo) => setImageInfo(imageInfo));
+    window.addEventListener('load', getImageInfo);
   });
 
-  // test data
-  let tags = ['집', '개', '고양이'];
-  let imageUrl = '../logo512.png';
-  let time = '2020-08-14 12:30';
   return (
     <>
       <Navbar />

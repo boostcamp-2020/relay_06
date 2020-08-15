@@ -26,17 +26,17 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="#" className="nav-link">
                 홈
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/diary" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 다이어리
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="#" className="nav-link">
                 프로필
               </NavLink>
             </li>

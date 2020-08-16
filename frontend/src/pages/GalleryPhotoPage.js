@@ -1,37 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import './GalleryPhotoPage.scss';
 import { Container, Badge, Button, Image } from 'react-bootstrap';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from '../plugin/axios';
+import BaseImage from '../images/baseImage.jpg';
+import './GalleryPhotoPage.scss';
 
 function GalleryPhotoPage({ match }) {
   const [imageInfo, setImageInfo] = useState({
     id: 0,
-    source: 'http://via.placeholder.com/350?text=Loding...',
+    source: '',
     tags: [],
     time: ''
   });
 
-  const getImageInfo = () => {
+  const getImageInfo = async () => {
     const imageId = match.params.id;
-    // await axios.get(`/api/photo/${imageId}`).then((imageInfo) => setImageInfo(imageInfo));
-    setImageInfo({
-      id: imageId,
-      source: 'http://placeimg.com/640/480/any',
-      tags: ['집', '개', '고양이'],
-      time: '2020-08-14 12:30'
-    });
+    await axios
+      .get(`/api/photo/${imageId}`)
+      .then((response) => {
+        const imageInfo = response.data;
+        setImageInfo({
+          id: imageInfo.id,
+          source: process.env.REACT_APP_BASE_URL + imageInfo.source,
+          tags: imageInfo.tag.split(',')
+        });
+      })
+      .catch((err) => {
+        alert('삭제된 사진이거나 요청이 잘못되었습니다.');
+        window.location = '/gallery';
+      });
   };
 
   const deleteImage = async () => {
     const imageId = match.params.id;
-    // await axios.delete(`/api/photo/${imageId}`).then(() => {
-    //   alert('삭제되었습니다.');
-    //   window.location = '/gallery';
-    // });
-    alert('삭제되었습니다.');
-    window.location = '/gallery';
+    await axios
+      .delete(`/api/photo/${imageId}`)
+      .then(() => {
+        alert('삭제되었습니다.');
+        window.location = '/gallery';
+      })
+      .catch((err) => {
+        alert('사진을 삭제하는 과정에서 오류가 발생했습니다.');
+      });
   };
 
   const tagClickHandler = (tag) => {
@@ -66,7 +78,7 @@ function GalleryPhotoPage({ match }) {
           ))}
         </div>
         <div className="photo-page-image-wrapper">
-          <Image src={imageInfo.source} fluid />
+          <Image src={imageInfo.source ? imageInfo.source : BaseImage} fluid />
         </div>
         <div className="photo-page-menu">
           <Button onClick={deleteImage}>사진삭제</Button>

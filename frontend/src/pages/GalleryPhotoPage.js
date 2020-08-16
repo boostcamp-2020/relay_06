@@ -6,7 +6,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function GalleryPhotoPage({ match }) {
-  const [imageInfo, setImageInfo] = useState({ id: 0, source: '', tags: [], time: '' });
+  const [imageInfo, setImageInfo] = useState({
+    id: 0,
+    source: 'http://via.placeholder.com/350?text=Loding...',
+    tags: [],
+    time: ''
+  });
 
   const getImageInfo = () => {
     const imageId = match.params.id;
@@ -34,8 +39,8 @@ function GalleryPhotoPage({ match }) {
   };
 
   useEffect(() => {
-    window.addEventListener('load', getImageInfo);
-  });
+    getImageInfo();
+  }, []);
 
   return (
     <>

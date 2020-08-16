@@ -59,9 +59,11 @@ relay 6조 라떼월드
 
 
 ### Demo
+접속 상태에 따라 나눠서 이용부탁드립니다. (살살 이용해주세요 ^^..)
 
 [http://relaydemo.changhee.me](http://relaydemo.changhee.me)
 
+[http://relaydemo2.changhee.me](http://relaydemo2.changhee.me)
 
 
 <br>

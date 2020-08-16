@@ -19,25 +19,20 @@ function GalleryPhotoPage({ match }) {
 
   const getImageInfo = async () => {
     const imageId = match.params.id;
-    await axios
-      .get(`/api/photo/${imageId}`)
-      .then((response) => {
-        const imageInfo = response.data;
-        console.log(imageInfo);
-        setImageInfo({
-          id: imageInfo.id,
-          source: process.env.REACT_APP_BASE_URL + imageInfo.source,
-          time: moment(imageInfo.time)
-            .tz("Asia/Seoul")
-            .format("YYYY-MM-DD HH:mm:ss"),
-          tags: imageInfo.tag.split(","),
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("삭제된 사진이거나 요청이 잘못되었습니다.");
-        window.location = "/gallery";
+    try {
+      const response = await axios.get(`/api/photo/${imageId}`);
+      const imageInfo = response.data;
+      setImageInfo({
+        id: imageInfo.id,
+        source: process.env.REACT_APP_BASE_URL + imageInfo.source,
+        time: moment(imageInfo.time).tz('Asia/Seoul').format('YYYY-MM-DD HH:mm:ss'),
+        tags: imageInfo.tag.split(',')
       });
+    } catch (err) {
+      console.log(err);
+      alert('삭제된 사진이거나 요청이 잘못되었습니다.');
+      window.location = '/gallery';
+    }
   };
 
   const deleteImage = async () => {

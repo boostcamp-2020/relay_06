@@ -4,7 +4,7 @@ import axios from "../plugin/axios";
 import { Button, Image, Container, Row, Col } from "react-bootstrap";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { imageData } from "../temp/images.js";
+// import { imageData } from "../temp/images.js";
 
 class GalleryPage extends React.Component {
   render() {
@@ -39,23 +39,29 @@ class Images extends React.Component {
 
     this.getImageInfo();
     this.state = {
-      imageData,
+      imageData: [],
     };
   }
 
   getImageInfo = async () => {
-    const imageInfo = 12;
-    await axios
-      .get(`/api/photo/`)
-      .then((response) => {
-        for (let i in response.data)
-          imageData[i].url =
-            process.env.REACT_APP_BASE_URL + response.data[i].source;
-      })
-      .catch((err) => {
-        alert("삭제된 사진이거나 요청이 잘못되었습니다.");
-        window.location = "/gallery";
+    try {
+      const response = await axios.get(`/api/photo/`);
+      console.log(response.data);
+      this.setState(() => {
+        let tmp = [];
+        for (let photo of response.data) {
+          tmp.push({
+            id: photo.id,
+            url: process.env.REACT_APP_BASE_URL + photo.source,
+          });
+        }
+        return {
+          imageData: tmp,
+        };
       });
+    } catch (err) {
+      alert("게시글을 불러오는 과정에서 오류가 발생했습니다.");
+    }
   };
 
   render() {
@@ -64,7 +70,9 @@ class Images extends React.Component {
         {this.state.imageData.map((image, i) => {
           return (
             <Col xs={6} md={4} key={i}>
-              <ImageInfo id={image.id} url={image.url} />
+              <a href={"./gallery/" + image.id}>
+                <ImageInfo id={image.id} url={image.url} />
+              </a>
             </Col>
           );
         })}

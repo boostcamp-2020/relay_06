@@ -1,0 +1,84 @@
+.home-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.home-profile-wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  padding: 30px 8px;
+
+  .profile-wrapper {
+    text-align: center;
+
+    .profile-todayis {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
+      .todayis-label {
+        font-weight: 600;
+        color: rgb(0, 140, 255);
+      }
+      .todayis-status {
+        margin-left: 5px;
+      }
+    }
+
+    img {
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+      width: 100%;
+    }
+
+    .profile-name {
+      margin-top: 5px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}
+
+.home-contents-wrapper {
+  margin-left: auto;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+
+  .home-content {
+    margin-bottom: 15px;
+
+    .content-label {
+      font-weight: 600;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .home-content-keywords {
+    li {
+      float: left;
+    }
+    li + li {
+      margin-left: 5px;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-profile-wrapper {
+    display: none;
+  }
+}

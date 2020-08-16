@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
+import axios from "../plugin/axios";
 import { Button, Image, Container, Row, Col } from "react-bootstrap";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { imageData } from "../temp/images.js";
-import axios from "../plugin/axios";
 
 class GalleryPage extends React.Component {
   render() {
@@ -36,10 +36,28 @@ class GalleryPage extends React.Component {
 class Images extends React.Component {
   constructor(props) {
     super(props);
+
+    this.getImageInfo();
     this.state = {
       imageData,
     };
   }
+
+  getImageInfo = async () => {
+    const imageInfo = 12;
+    await axios
+      .get(`/api/photo/`)
+      .then((response) => {
+        for (let i in response.data)
+          imageData[i].url =
+            process.env.REACT_APP_BASE_URL + response.data[i].source;
+      })
+      .catch((err) => {
+        alert("삭제된 사진이거나 요청이 잘못되었습니다.");
+        window.location = "/gallery";
+      });
+  };
+
   render() {
     return (
       <Row>
@@ -54,28 +72,6 @@ class Images extends React.Component {
     );
   }
 }
-
-// const getImages = async () => {
-//   await axios
-//     .get(`/api/photo/`)
-//     .then((response) => {
-//       const imageInfo = response.data;
-//       console.log(imageInfo);
-//       // setImageInfo({
-//       //   id: imageInfo.id,
-//       //   source: process.env.REACT_APP_BASE_URL + imageInfo.source,
-//       //   time: moment(imageInfo.time)
-//       //     .tz("Asia/Seoul")
-//       //     .format("YYYY-MM-DD HH:mm:ss"),
-//       //   tags: imageInfo.tag.split(","),
-//       // });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       alert("삭제된 사진이거나 요청이 잘못되었습니다.");
-//       window.location = "/gallery";
-//     });
-// };
 
 class ImageInfo extends React.Component {
   render() {

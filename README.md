@@ -60,7 +60,7 @@ relay 6조 라떼월드
 
 ### Demo
 
-[https://relaydemo.changhee.me](https://relaydemo.changhee.me)
+[http://relaydemo.changhee.me](http://relaydemo.changhee.me)
 
 
 

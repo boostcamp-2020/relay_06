@@ -4,6 +4,7 @@ import './GalleryPhotoPage.scss';
 import { Container, Badge, Button, Image } from 'react-bootstrap';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from '../plugin/axios';
 
 function GalleryPhotoPage({ match }) {
   const [imageInfo, setImageInfo] = useState({

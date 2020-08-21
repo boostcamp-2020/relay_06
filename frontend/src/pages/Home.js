@@ -1,9 +1,9 @@
-import React from 'react';
-import { Container, Row, Col, Image, Badge } from 'react-bootstrap';
-import Navbar from '../components/Navbar';
-import Avatar from '../images/avatar.jpg';
-import MiniRoom from '../images/miniroom.gif';
-import './Home.scss';
+import React from "react";
+import { Container, Row, Col, Image, Badge } from "react-bootstrap";
+import Navbar from "../components/Navbar";
+import Avatar from "../images/avatar.jpg";
+import MiniRoom from "../images/miniroom.gif";
+import "./Home.scss";
 
 function Home() {
   return (

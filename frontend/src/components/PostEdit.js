@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
-import axios from '../plugin/axios';
-import TagList from './TagList';
+import React, { useState } from "react";
+import axios from "../plugin/axios";
+import TagList from "./TagList";
 
 function PostEdit() {
   // const [postData, setPostData] = useState({title: null, content: null});
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [tagArr, setTagArr] = useState([]);
+
   const onClick = (e) => {
     axios({
       url: `/api/diary`,
-      method: 'post',
+      method: "post",
       data: {
         title: title,
-        content: content
-      }
+        content: content,
+      },
     });
   };
+
   const onSetTags = () => {
     axios({
       url: `/api/nlp`,
-      method: 'post',
+      method: "post",
       data: {
-        content: content
-      }
+        content: content,
+      },
     }).then((response) => {
       const arr = [];
       const tags = JSON.parse(response.data);

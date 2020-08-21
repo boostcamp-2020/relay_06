@@ -1,0 +1,34 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "../pages/Home";
+import PostPage from "../pages/PostPage";
+import GalleryPage from "../pages/GalleryPage";
+import GalleryUploadPage from "../pages/GalleryUploadPage";
+import GalleryPhotoPage from "../pages/GalleryPhotoPage";
+<<<<<<< HEAD
+import SignUp from "../pages/SignUp";
+=======
+>>>>>>> 2d253354e642b286e26dcf5b0398dce44169390b
+import LoginPage from "../pages/LoginPage";
+
+function Routes() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/diaryHome" component={Home} />
+        <Route exact path="/diary" component={PostPage} />
+        <Route exact path="/gallery" component={GalleryPage} />
+        <Route exact path="/gallery/upload" component={GalleryUploadPage} />
+        <Route exact path="/gallery/:id" component={GalleryPhotoPage} />
+<<<<<<< HEAD
+        <Route exact path="/signUp" component={SignUp} />
+=======
+        <Route exact path="/login" component={LoginPage} />
+>>>>>>> 2d253354e642b286e26dcf5b0398dce44169390b
+      </Switch>
+    </Router>
+  );
+}
+
+export default Routes;

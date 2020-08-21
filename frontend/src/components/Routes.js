@@ -18,6 +18,7 @@ function Routes() {
         <Route exact path="/gallery" component={GalleryPage} />
         <Route exact path="/gallery/upload" component={GalleryUploadPage} />
         <Route exact path="/gallery/:id" component={GalleryPhotoPage} />
+        <Route exact path="/login" component={LoginPage} />
         <Route exact path="/signUp" component={SignUp} />
       </Switch>
     </Router>

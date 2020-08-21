@@ -1,30 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Image, Badge } from "react-bootstrap";
 import Navbar from "../components/Navbar";
 import Avatar from "../images/avatar.jpg";
 import MiniRoom from "../images/miniroom.gif";
 import "./Home.scss";
-
-const dummyUsers = [
-  {
-    name: 'eunsik0',
-    image: "../images/avatar.jpg"
-  },
-  {
-    name: 'eunsik1',
-    image: "../images/avatar.jpg"
-  },
-  {
-    name: 'eunsik2',
-    image: "../images/avatar.jpg"
-  },
-  {
-    name: 'eunsik3',
-    image: "../images/avatar.jpg"
-  }
-]
+import axios from "axios";
 
 function Home() {
+  const [dummyUsers, setDummyUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/user/recommend`, {}).then(function (response) {
+      console.log(response.data);
+      setDummyUsers(response.data);
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -85,14 +76,12 @@ function Home() {
         </Row>
         <span className="recommend_title">추천</span>
         <div className="recommend_container">
-          {
-            dummyUsers.map((user) => (
-              <div className="recommend_user">
-                <div className="recommend_image"></div>
-                <span className="recommend_name">{user.name}</span>
-              </div>
-            ))
-          }
+          {dummyUsers.map((user) => (
+            <div className="recommend_user">
+              <div className="recommend_image"></div>
+              <span className="recommend_name">{user.id}</span>
+            </div>
+          ))}
         </div>
       </Container>
     </>

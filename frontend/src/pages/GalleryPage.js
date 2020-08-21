@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
-import axios from '../plugin/axios';
-import { Button, Image, Container, Row, Col } from 'react-bootstrap';
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Component } from "react";
+import Navbar from "../components/Navbar";
+import axios from "../plugin/axios";
+import { Button, Image, Container, Row, Col } from "react-bootstrap";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { imageData } from "../temp/images.js";
 
 class GalleryPage extends React.Component {
@@ -13,7 +13,7 @@ class GalleryPage extends React.Component {
         <Navbar />
         <Container>
           <br />
-          <Button style={{ float: 'right' }} variant="primary" href="/gallery/upload">
+          <Button style={{ float: "right" }} variant="primary" href="/gallery/upload">
             사진등록&nbsp;
             <FontAwesomeIcon icon={faPencilAlt} />
           </Button>
@@ -35,7 +35,7 @@ class Images extends React.Component {
 
     this.getImageInfo();
     this.state = {
-      imageData: []
+      imageData: [],
     };
   }
 
@@ -48,16 +48,16 @@ class Images extends React.Component {
         for (let photo of response.data) {
           tmp.push({
             id: photo.id,
-            url: process.env.REACT_APP_BASE_URL + photo.source
+            url: process.env.REACT_APP_BASE_URL + photo.source,
           });
         }
         tmp.sort((a, b) => b.id - a.id);
         return {
-          imageData: tmp
+          imageData: tmp,
         };
       });
     } catch (err) {
-      alert('게시글을 불러오는 과정에서 오류가 발생했습니다.');
+      alert("게시글을 불러오는 과정에서 오류가 발생했습니다.");
     }
   };
 
@@ -67,7 +67,7 @@ class Images extends React.Component {
         {this.state.imageData.map((image, i) => {
           return (
             <Col xs={6} md={4} key={i}>
-              <a href={'./gallery/' + image.id}>
+              <a href={"./gallery/" + image.id}>
                 <ImageInfo id={image.id} url={image.url} />
               </a>
             </Col>

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import BeforeNavbar from "../components/BeforeNavbar";
 import styled from "styled-components";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
   const [ID, setID] = useState("");
   const [password, setPassword] = useState("");
   const [hobby, setHobby] = useState("");
-
+  const history = useHistory();
   const onChangeID = (event) => {
     setID(event.target.value);
     console.log(event.target.value);
@@ -26,6 +27,7 @@ export default function SignUp() {
       alert("Fill the Empty Boxes");
       return;
     }
+    history.replace("/");
     alert(`회원가입 성공!!! \r\n
     아이디: ${ID} \r\n
     비밀번호: ${password} \r\n
@@ -34,9 +36,8 @@ export default function SignUp() {
   };
 
   const sendSignUpInfo = () => {
-    const api = "localhost:8000";
     axios
-      .post(`${api}/user/signup`, {
+      .post(`/api/user/signup`, {
         id: ID,
         pw: password,
         hobby: hobby,
@@ -83,7 +84,7 @@ const SignUpForm = styled.div`
 `;
 
 const SignUpBox = styled.div`
-  border: red 1px solid;
+  border: red 2px solid;
   width: 500px;
   height: 500px;
   border-radius: 20px;

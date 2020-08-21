@@ -26,7 +26,7 @@ export default function BeforeNavbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/signUp" className="nav-link">
                 회원가입
               </NavLink>
             </li>

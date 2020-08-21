@@ -82,3 +82,46 @@
     display: none;
   }
 }
+
+.recommend_title {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.recommend_container {
+  padding: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.recommend_user {
+  width: 20%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid black;
+  }
+}
+
+.recommend_image {
+  width: 70%;
+  height: 90%;
+  background-image: url("https://user-images.githubusercontent.com/26402298/90854630-72ef6280-e3b8-11ea-9b8c-498bec17522f.png");
+  background-size: cover;
+}
+
+.recommend_name {
+
+}

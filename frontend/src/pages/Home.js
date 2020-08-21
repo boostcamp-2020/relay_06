@@ -5,6 +5,25 @@ import Avatar from '../images/avatar.jpg';
 import MiniRoom from '../images/miniroom.gif';
 import './Home.scss';
 
+const dummyUsers = [
+  {
+    name: 'eunsik0',
+    image: "../images/avatar.jpg"
+  },
+  {
+    name: 'eunsik1',
+    image: "../images/avatar.jpg"
+  },
+  {
+    name: 'eunsik2',
+    image: "../images/avatar.jpg"
+  },
+  {
+    name: 'eunsik3',
+    image: "../images/avatar.jpg"
+  }
+]
+
 function Home() {
   return (
     <>
@@ -64,6 +83,17 @@ function Home() {
             </Container>
           </Col>
         </Row>
+        <span className="recommend_title">추천</span>
+        <div className="recommend_container">
+          {
+            dummyUsers.map((user) => (
+              <div className="recommend_user">
+                <div className="recommend_image"></div>
+                <span className="recommend_name">{user.name}</span>
+              </div>
+            ))
+          }
+        </div>
       </Container>
     </>
   );
